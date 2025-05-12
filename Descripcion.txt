@@ -1,0 +1,1 @@
+Usando el framework React Native desarrollaremos la interfaz para dispositivos móviles. Aprovechando además el trabajo realizado en los dos primeros productos, podremos transformar las interfaces a “mobile” además de conectarnos a nuestra base de datos en firebase.
