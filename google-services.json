@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "462639357386",
+    "project_id": "devflow-37a3a",
+    "storage_bucket": "devflow-37a3a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462639357386:android:4a73d610d2980d4fb00333",
+        "android_client_info": {
+          "package_name": "Dev.Flow.P4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdNreQB8HCuLZbUFzZlvsA31mA3E-AszI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462639357386:android:85accbc0a98c423eb00333",
+        "android_client_info": {
+          "package_name": "com.devflow.basket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdNreQB8HCuLZbUFzZlvsA31mA3E-AszI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
