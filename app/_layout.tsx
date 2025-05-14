@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -28,14 +29,17 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        {/* Aquí cargamos el index.tsx normal */}
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        {/* Y también una pantalla para cuando no se encuentra algo */}
-        <Stack.Screen name="+not-found" options={{ title: 'Página no encontrada' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="media" options={{ headerShown: false }} />
+          <Stack.Screen name="player/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="video/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ title: 'Página no encontrada' }} />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

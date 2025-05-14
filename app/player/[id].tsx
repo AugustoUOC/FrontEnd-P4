@@ -8,13 +8,13 @@ import {
   ScrollView,
   useWindowDimensions,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Video as ExpoVideo, ResizeMode } from "expo-av";
-
-import { getPlayers } from "../../services/playerService";
-import { Player } from "../../models/types";
+import { playerService } from '../../services/playerService';
+import { Player } from '../../types/player';
 
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams();
@@ -25,13 +25,15 @@ export default function PlayerDetailScreen() {
   const [zoomImageUri, setZoomImageUri] = useState<string | null>(null);
   const videoRef = useRef<ExpoVideo>(null);
   const { width: screenWidth } = useWindowDimensions();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      const allPlayers = await getPlayers();
+      const allPlayers = await playerService.getPlayers();
       setPlayers(allPlayers);
 
-      const index = allPlayers.findIndex(p => p.id === id);
+      const index = allPlayers.findIndex((p: Player) => p.id === id);
       setPlayerIndex(index);
 
       if (index !== -1) {
@@ -43,6 +45,24 @@ export default function PlayerDetailScreen() {
 
     fetchPlayers();
   }, [id]);
+
+  useEffect(() => {
+    loadPlayer();
+  }, [id]);
+
+  const loadPlayer = async () => {
+    try {
+      setLoading(true);
+      const data = await playerService.getPlayerById(id as string);
+      setPlayer(data);
+      setError(null);
+    } catch (err) {
+      setError('Error al cargar los datos del jugador');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const goToPrevious = () => {
     if (playerIndex > 0) {
@@ -66,11 +86,25 @@ export default function PlayerDetailScreen() {
     router.push("/")
   }
 
-  if (!player) {
+  if (loading) {
     return (
-      <SafeAreaView style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Cargando jugador...</Text>
-      </SafeAreaView>
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#d00000" />
+      </View>
+    );
+  }
+
+  if (error || !player) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.errorText}>{error || 'Jugador no encontrado'}</Text>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => router.back()}
+        >
+          <Text style={styles.backButtonText}>Volver</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 
@@ -89,7 +123,10 @@ export default function PlayerDetailScreen() {
         
         <View style={styles.detailContainer}>
           <TouchableOpacity onPress={() => setZoomImageUri(player.imageUrl)}>
-            <Image source={{ uri: player.imageUrl }} style={styles.image} />
+            <Image
+              source={{ uri: player.imageUrl }}
+              style={styles.playerImage}
+            />
           </TouchableOpacity>
           <View style={styles.info}>
             <Text style={styles.name}>{player.name}</Text>
@@ -142,6 +179,10 @@ export default function PlayerDetailScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#111',
+  },
   loadingContainer: {
     flex: 1,
     backgroundColor: "#111",
@@ -156,12 +197,6 @@ const styles = StyleSheet.create({
     flexDirection: "row", 
     justifyContent: "space-between", 
     width: "100%"
-  },
-  container: {
-    padding: 20,
-    backgroundColor: "#111",
-    paddingBottom: 40,
-    justifyContent: "space-between",
   },
   backButton: {
     marginBottom: 18,
@@ -184,12 +219,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     alignItems: "center",
   },
-  image: {
+  playerImage: {
     width: 120,
     height: 120,
     borderRadius: 12,
     marginRight: 20,
-    backgroundColor: "#eee",
   },
   info: {
     flex: 1,
@@ -268,5 +302,16 @@ const styles = StyleSheet.create({
     height: '70%',
     resizeMode: 'contain',
     borderRadius: 12,
+  },
+  errorText: {
+    color: '#ff4444',
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  backButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
