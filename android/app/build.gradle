@@ -88,9 +88,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.Producto3'
+    namespace 'Dev.Flow.P4'
     defaultConfig {
-        applicationId 'com.anonymous.Producto3'
+        applicationId 'Dev.Flow.P4'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -151,11 +151,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-
-    implementation 'com.github.invertase:notifee-android:9.1.8'
-
-
-
+    implementation 'com.google.firebase:firebase-messaging:23.4.1'
 
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
