@@ -1,8 +1,12 @@
 // config/firebase.ts
 import { initializeApp } from 'firebase/app';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
+
+// Tu configuración de Firebase
 const firebaseConfig = {
+  // Aquí debes colocar tu configuración de Firebase
+  // La obtendrás de la consola de Firebase
   apiKey: "AIzaSyByHX8ovPinHEkg1CxZoCjBDUIOtBphjos",
   authDomain: "devflow-37a3a.firebaseapp.com",
   projectId: "devflow-37a3a",
@@ -12,10 +16,16 @@ const firebaseConfig = {
   measurementId: "G-GCFQ76YTF6"
 };
 
-// Inicializa la aplicación de Firebase
-const app = initializeApp(firebaseConfig);
+console.log('Inicializando Firebase con la configuración:', firebaseConfig);
 
-// Crea la referencia a Firestore con el tipo adecuado
-const db: Firestore = getFirestore(app);
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+console.log('Firebase App inicializado:', app);
+
+// Inicializar Firestore
+const db = getFirestore(app);
+
+console.log('Firestore inicializado:', db);
 
 export { db };
+export default app;
