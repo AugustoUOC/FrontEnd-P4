@@ -1,36 +1,38 @@
 {
   "expo": {
-    "name": "Producto3",
-    "slug": "Producto3",
+    "name": "DevFlow Basket",
+    "slug": "devflow-basket",
     "version": "1.0.0",
     "orientation": "portrait",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devflow.basket"
     },
     "android": {
-      "package": "com.anonymous.Producto3"
+      "package": "com.devflow.basket",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging"
     ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "941bc1fa-7a35-4278-b4d8-5822e54676e4"
+      }
+    },
+    "owner": "augustogatell"
   }
 }

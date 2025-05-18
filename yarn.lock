@@ -2494,11 +2494,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^9.1.8":
-  version "9.1.8"
-  resolved "https://registry.npmjs.org/@notifee/react-native/-/react-native-9.1.8.tgz"
-  integrity sha512-Az/dueoPerJsbbjRxu8a558wKY+gONUrfoy3Hs++5OqbeMsR0dYe6P+4oN6twrLFyzAhEA1tEoZRvQTFDRmvQg==
-
 "@npmcli/fs@^3.1.0":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@npmcli/fs/-/fs-3.1.1.tgz"
@@ -2579,24 +2574,17 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-compose-refs" "1.0.0"
 
-"@react-native-firebase/app@^22.1.0", "@react-native-firebase/app@22.1.0":
-  version "22.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-22.1.0.tgz"
-  integrity sha512-s01yjF92Fpre7Ff5UzNpVE4q25x2eF+nD8SGzZzBp7nTQjK+4U+VllJ3ajvbjJkfIyMYNBowM135iK/DO5cwDA==
+"@react-native-firebase/app@^22.2.0", "@react-native-firebase/app@22.2.0":
+  version "22.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-22.2.0.tgz"
+  integrity sha512-zw7KRo1nZwj9+ED6SHgl5/ioRqcA8RwqBuiGWx5Nrr4JrhbLpaihfPuDsGcn0LvEO5knVrhZvQP1fgzLjRsUgw==
   dependencies:
     firebase "11.3.1"
 
-"@react-native-firebase/auth@^22.1.0":
-  version "22.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-22.1.0.tgz"
-  integrity sha512-MOYNCMPGWKkSHQauurFjikFMcnEHpPPdXFylPhLYjodDgmHjbIkbCm82GBhgzKbQR5LDFWUGkq2CE8Hw59VyNw==
-  dependencies:
-    plist "^3.1.0"
-
-"@react-native-firebase/messaging@^22.1.0":
-  version "22.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-22.1.0.tgz"
-  integrity sha512-5sAacO4ZnGC0REa7u7SUtZqHEzNm+pud5V8H60nAoTY+3mUrPKB9Bv11R0nM8KNsIqCb/bpbObdfn5yn8RVQ1A==
+"@react-native-firebase/messaging@^22.2.0":
+  version "22.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-22.2.0.tgz"
+  integrity sha512-bAkVKcXTcFyqXsVw2cgOk0pX8yW1IpQd3+CeLBywB1/L56lIk3e2giGuTqDjw2sspRbSRu/JOMU4YEZ/8/+7rA==
 
 "@react-native/assets-registry@0.76.9":
   version "0.76.9"
@@ -4504,7 +4492,7 @@ expo-blur@~14.0.3:
   resolved "https://registry.npmjs.org/expo-blur/-/expo-blur-14.0.3.tgz"
   integrity sha512-BL3xnqBJbYm3Hg9t/HjNjdeY7N/q8eK5tsLYxswWG1yElISWZmMvrXYekl7XaVCPfyFyz8vQeaxd7q74ZY3Wrw==
 
-expo-constants@~17.0.5, expo-constants@~17.0.8:
+expo-constants@*, expo-constants@~17.0.5, expo-constants@~17.0.8:
   version "17.0.8"
   resolved "https://registry.npmjs.org/expo-constants/-/expo-constants-17.0.8.tgz"
   integrity sha512-XfWRyQAf1yUNgWZ1TnE8pFBMqGmFP5Gb+SFSgszxDdOoheB/NI5D4p7q86kI2fvGyfTrxAe+D+74nZkfsGvUlg==
@@ -4541,7 +4529,7 @@ expo-linear-gradient@~14.0.2:
   resolved "https://registry.npmjs.org/expo-linear-gradient/-/expo-linear-gradient-14.0.2.tgz"
   integrity sha512-nvac1sPUfFFJ4mY25UkvubpUV/olrBH+uQw5k+beqSvQaVQiUfFtYzfRr+6HhYBNb4AEsOtpsCRkpDww3M2iGQ==
 
-expo-linking@~7.0.5:
+expo-linking@*, expo-linking@~7.0.5:
   version "7.0.5"
   resolved "https://registry.npmjs.org/expo-linking/-/expo-linking-7.0.5.tgz"
   integrity sha512-3KptlJtcYDPWohk0MfJU75MJFh2ybavbtcSd84zEPfw9s1q3hjimw3sXnH03ZxP54kiEWldvKmmnGcVffBDB1g==
@@ -4570,10 +4558,10 @@ expo-modules-core@2.2.3:
   dependencies:
     invariant "^2.2.4"
 
-expo-router@~4.0.21:
-  version "4.0.21"
-  resolved "https://registry.npmjs.org/expo-router/-/expo-router-4.0.21.tgz"
-  integrity sha512-z1U9cGZbgL+ZSHp533VMobOqdkUpFBlDXBpd9/JH+Q0wW49is0G2PrJVUYMzdwr30HSUltdO/19W8rRwjfOnFw==
+expo-router@~4.0.20:
+  version "4.0.20"
+  resolved "https://registry.npmjs.org/expo-router/-/expo-router-4.0.20.tgz"
+  integrity sha512-1+CtvohptOsG/Piejk8uQ9cmM+8ojadFkdeThCn4klZjc0dtFSSHenb8D/0RKuBdp4taBkNaqgEKwYvhVBJyEg==
   dependencies:
     "@expo/metro-runtime" "4.0.1"
     "@expo/server" "^0.5.3"
@@ -7016,7 +7004,7 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-plist@^3.0.5, plist@^3.1.0:
+plist@^3.0.5:
   version "3.1.0"
   resolved "https://registry.npmjs.org/plist/-/plist-3.1.0.tgz"
   integrity sha512-uysumyrvkUX0rX/dEVqt8gC3sTBzd4zoWfLeS29nb53imdaXVvLINYXTI2GNqzaMuvacNx4uJQ8+b3zXR0pkgQ==
